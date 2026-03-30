@@ -1,40 +1,62 @@
 from linkedlist import Llist
 
 
-def reverse(head, k, size):
-    prev = next = None
-    curr = head
-
-    i = 0
-    while curr and i < k:
-        next = curr.next
-        curr.next = prev
-        prev = curr
-        curr = next
-        i += 1
-
-    head.next = curr
-    return prev
-
-
 def reversKGroup(head, k):
-    size = 0
+
+    def findKthNode(head, k):
+        k -= 1
+        temp = head
+
+        while k > 0 and temp:
+            temp = temp.next
+            k -= 1
+
+        return temp
+
+    def reverse(head):
+        prev = next = None
+        curr = head
+
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+
+        return prev
+
     temp = head
+    prevNode = nextNode = None
+
     while temp:
-        temp = temp.next
-        size += 1
+        kthNode = findKthNode(temp, k)
+        if not kthNode:
+            if prevNode:
+                prevNode.next = temp
+            break
 
-    temp = head
+        # remove and save next link
+        nextNode = kthNode.next
+        kthNode.next = None
 
-    while size >= k:
-        head = reverse(head, k, size)
-        size -= k
+        # reverse upto kth node
+        reverse(temp)
+
+        if temp == head:
+            # change head in first reverse group (kthNode)
+            head = kthNode
+        else:
+            prevNode.next = kthNode
+
+        prevNode = temp
+        temp = nextNode
 
     return head
 
 
 nums = [1, 2, 3, 4, 5]
 head = Llist(data=nums).get_head()
+
 
 head = reversKGroup(head, 3)
 
