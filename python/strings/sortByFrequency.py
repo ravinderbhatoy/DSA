@@ -1,21 +1,22 @@
 def frequencySort(s: str) -> str:
-    freqChars = dict()
-    mylist = list()
+    hashmap = dict()
+    freq = list()
     ans = ""
 
-    for ch in s:
-        freqChars[ch] = freqChars.get(ch, 0) + 1
+    for i in range(len(s)):
+        hashmap[s[i]] = hashmap.get(s[i], 0) + 1
 
-    for key in freqChars.keys():
-        mylist.append((freqChars[key], key))
+    for key in hashmap.keys():
+        freq.append((hashmap[key], key))
 
-    mylist = sorted(mylist, reverse=True)
+    freq = sorted(freq, reverse=True)
 
-    for pairs in mylist:
-        ans += pairs[1] * pairs[0]
+    for i in range(len(freq)):
+        st = freq[i][1] * freq[i][0]
+        ans += st
 
     return ans
 
 
-s = "rtteee"
+s = "abbdcc"
 print(frequencySort(s))
