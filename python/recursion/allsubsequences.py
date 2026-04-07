@@ -9,7 +9,7 @@ def subsequences(arr: list[int], ind: int, sub: list[int]):
     sub.append(arr[ind])
     subsequences(arr, ind + 1, sub)
     # remove element at a particular index to exclude from subsequence
-    sub.pop(1)
+    sub.pop()
     subsequences(arr, ind + 1, sub)
 
 
@@ -68,6 +68,6 @@ def countSubsequencesWithSumK(arr: list[int], ind: int, k: int, sum: int,
 
 arr1 = [3, 1, 2]
 arr2 = [1, 2, 1]
-subsequences(arr, 0, [])
+subsequences(arr1, 0, [])
 # onlyOneSubsequenceWithSumK(arr2, [], 0, 2, 0)
 # print(countSubsequencesWithSumK(arr2, 0, 2, 0, 0))
