@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 struct Node {
@@ -8,11 +8,6 @@ struct Node {
   Node(int data1) {
     data = data1;
     next = nullptr;
-  }
-
-  Node(int data1, Node *next1) {
-    data = data1;
-    next = next1;
   }
 };
 
@@ -54,26 +49,39 @@ public:
   int top() { return head == nullptr ? -1 : head->data; }
 
   int getSize() { return size; }
+
+  void show() {
+    if (head == nullptr)
+      return;
+    Node *temp = head;
+    while (temp != nullptr) {
+      cout << temp->data << "->";
+      temp = temp->next;
+    }
+    cout << endl;
+  }
 };
 
 int main() {
 
   queueLL que;
+  cout << "Pushing 7: " << endl;
   que.push(7);
+  cout << "Pushing 2: " << endl;
   que.push(2);
+  cout << "Pushing 3: " << endl;
   que.push(3);
+  cout << "Pushing 5: " << endl;
   que.push(5);
+  cout << "Popping out" << endl;
+  que.pop();
+  cout << "Popping out" << endl;
+  que.pop();
 
-  cout << que.top() << endl;
-  cout << que.getSize() << endl;
-
-  cout << que.pop() << endl;
-  cout << que.pop() << endl;
-  cout << que.pop() << endl;
-  cout << que.pop() << endl;
-  cout << que.pop() << endl;
-
-  cout << que.getSize() << endl;
+  cout << "Size of Queue: " << que.getSize() << endl;
+  cout << "Top of Queue: " << que.top() << endl;
+  cout << "Printing queue: " << endl;
+  que.show();
 
   return 0;
 }
