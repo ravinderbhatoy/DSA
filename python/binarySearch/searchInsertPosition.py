@@ -1,4 +1,4 @@
-def searchInsert(nums: [int], target: int):
+def searchInsert(nums: list[int], target: int):
     low = 0
     high = len(nums) - 1
     pos = -1
