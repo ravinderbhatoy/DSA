@@ -5,6 +5,12 @@ from buildTree import build_tree
 
 
 def deleteNode(root: TreeNode, val: int):
+
+    def find_successor(node):
+        while node.left:
+            node = node.left
+        return node
+
     if not root:
         return root
 
@@ -17,6 +23,10 @@ def deleteNode(root: TreeNode, val: int):
             return root.right
         if not root.right:
             return root.left
+
+        successor = find_successor(root.right)
+        root.val = successor.val
+        root.right = deleteNode(root.right, successor.val)
     return root
 
 
