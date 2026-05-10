@@ -5,7 +5,7 @@ def generate_matrix(n, edges: list[tuple]):
 
     for u, v in edges:
         adj_matrix[u][v] = 1
-        adj_matrix[v][u] = 1
+        adj_matrix[v][u] = 1  # undirected graph
 
     for i in range(n + 1):
         print(adj_matrix[i])
