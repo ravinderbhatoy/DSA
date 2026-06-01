@@ -22,7 +22,7 @@ def distanceK(root: TreeNode, target: TreeNode, k: int):
     visited = {target}
     curr_dis = 0
 
-    # start moving and calculate distance
+    # start moving and calculate distance (Just like graphs)
     # O(N)
     while queue:
         if curr_dis == k:

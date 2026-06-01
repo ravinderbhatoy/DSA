@@ -26,6 +26,9 @@ def findLcaOptimized(root: TreeNode, p: TreeNode, q: TreeNode):
 def findLca(root: TreeNode, p: TreeNode, q: TreeNode):
     """
     Lowest common ancestor of p and q
+    Approach:
+    1. Find the path to p and q
+    2. return last common node in two path
     """
 
     def findPath(node, target, path):

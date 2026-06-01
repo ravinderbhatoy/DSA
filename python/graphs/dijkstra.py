@@ -3,13 +3,16 @@ import heapq
 
 class Solution:
 
-    # Function to find the shortest distance of all the vertices from the source vertex S
+    # Function to find the shortest distance of all the vertices from
+    # the source vertex S
     def dijkstra(self, V, adj, S):
         # Create a priority queue to store the nodes as a pair {dist, node}
-        # The queue will always return the node with the smallest distance first
+        # The queue will always return the node with
+        # the smallest distance first
         pq = []
 
-        # Initialising dist list with a large number to indicate the nodes are unvisited initially
+        # Initialising dist list with a large number to indicate the nodes are
+        # unvisited initially
         dist = [float('inf')] * V
         dist[S] = 0
 

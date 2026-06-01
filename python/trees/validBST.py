@@ -28,7 +28,6 @@ def isValidBST(root):
 
 
 def isValid(root):
-
     def check(root, low, high):
         if not root:
             return True
@@ -36,7 +35,8 @@ def isValid(root):
         if not (low < root.val < high):
             return False
 
-        return check(root.left, low, root) and check(root.right, root.val, high)
+        return (check(root.left, low, root)
+                and check(root.right, root.val, high))
 
     return check(root, float('-inf'), float('inf'))
 

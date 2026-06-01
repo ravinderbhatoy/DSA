@@ -29,11 +29,11 @@ bst_root.right.right = TreeNode(14)
 bst_root.right.right.left = TreeNode(13)
 
 
-if __name__ == "__main__":
-    """
-                  1
-                 / \
-                2   3
-               / \ / \                
-              4  5 6  7
-    """
+# if __name__ == "__main__":
+#     """
+#                   1
+#                  / \
+#                 2   3
+#                / \ / \
+#               4  5 6  7
+#     """
